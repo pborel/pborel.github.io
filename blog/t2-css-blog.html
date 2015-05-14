@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phil Borel - Blog - CSS Display Inline vs. Inline Block</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+
+  <header>
+      <div id="nav-bar">
+       <ul id="nav-bar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../blogindex.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+</head>
+
+<main>
+  <h1>CSS: Display Inline vs. Inline Block</h1>
+  <h2><!-- The subtitle, if you want it --></h2>
+  <h4>5/14/15</h4>
+
+  <section>
+    <p>
+      While learning CSS I was completely befuddled by the display property. I tried to learn by doing. I fiddled around with HTML elements in CSS. Most concepts came naturally to me. That was, until I bumped into the display property. <a href="http://www.w3schools.com/cssref/pr_class_display.asp">W3 Schools</a> tells us that, "The display property specifies the type of box used for an HTML element." Simple enough right? Not for me. I tried to mess around with it and either my div wouldn't move or it'd move in unpredictable ways.
+    </p>
+    <p>
+      A quick search on <a href="http://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block">Stack Overflow</a> returned some really easy to digest information on the subject:
+    </p>
+
+    <p id="block-explanation">
+      <h3>Inline Elements:</h3>
+      1) Respect left & right margins and padding, but not top & bottom<br/>
+      2) Cannot have a width and height set<br/>
+      3) Allow other elements to sit to their left and right.
+
+      <h3>Block elements:</h3>
+      1) Respect left & right margins and padding, but not top & bottom<br/>
+      2) Force a line break after the block element
+
+      <h3>Inline-block elements:</h3>
+      1) Allow other elements to sit to their left and right<br/>
+      2) Respect top & bottom margins and padding<br/>
+      3) Respect height and width<br/>
+    </p>
+
+    <p>
+      If you are more of a visual person, this image should help: <br/>
+      <img src="../imgs/display-types.png">
+    </p>
+    <h6>Image Credit: <a href="http://dustwell.com/div-span-inline-block.html">dustwell.com</a>
+  </section>
+</main>
+
+<footer>
+    <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../imgs/linkedinicon.png" alt=LinkedIn></a>
+    <a href="https://github.com/pborel"><img id="github" src="../imgs/githubicon.png" alt=GitHub></a>
+    <p>For more information or to request a quote, email me at <a href=mailto:philborel21@gmail.com>philborel21@gmail.com</a></p>
+</footer>
+</html>
+
