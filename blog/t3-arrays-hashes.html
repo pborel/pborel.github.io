@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phil Borel - Blog - Arrays / Hashes</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+
+  <header>
+      <div id="nav-bar">
+       <ul id="nav-bar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../blogindex.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+</head>
+
+<main>
+  <h1>Arrays / Hashes</h1>
+  <h2><!-- The subtitle, if you want it --></h2>
+  <h4>5/17/15</h4>
+
+  <section>
+    <p>
+      While learning Ruby I have been puzzled by the differences between arrays and hashes. Why use one or the other? According to <a href="http://www.linuxtopia.org/online_books/programming_books/ruby_tutorial/Ruby.new_Arrays_and_Hashes.html">linuxtopia.com<a/> the difference is small, "Ruby's arrays and hashes are indexed collections. Both store collections of objects, accessible using a key. With arrays, the key is an integer, whereas hashes support any object as a key." But this doesn't tell us when to use one over the other.
+    </p>
+    <p>
+      Arrays are ordered, hashes are not. This means that we can sort an array and easily retrieve data from a specified location. This makes arrays better for data that may require reordering and data that we will want to keep track of given a specific array location.
+    </p>
+    <p>
+      Hashes are great for making psuedo-objects, fake objects to simulate user data with a list of specific characteristics. This is because we can make a hash with keys that resemble class variable names and give them any values we want. We can then access this data with these familiar variable names. This works as long as their <em>order</em> doesn't matter.
+    </p>
+    <p>
+      <em>Additional Reading: <a href="http://programmers.stackexchange.com/questions/203866/ruby-idiomatic-hashes-vs-arrays">stackexchange.com</a></em>
+    </p>
+  </section>
+</main>
+
+<footer>
+    <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../imgs/linkedinicon.png" alt=LinkedIn></a>
+    <a href="https://github.com/pborel"><img id="github" src="../imgs/githubicon.png" alt=GitHub></a>
+    <p>For more information or to request a quote, email me at <a href=mailto:philborel21@gmail.com>philborel21@gmail.com</a></p>
+</footer>
+</html>
+
