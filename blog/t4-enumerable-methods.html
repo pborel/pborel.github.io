@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phil Borel - Blog - </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+
+  <header>
+      <div id="nav-bar">
+       <ul id="nav-bar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../blogindex.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+</head>
+
+<main>
+  <h1>Enumerables</h1>
+  <h2><!-- The subtitle, if you want it --></h2>
+  <h4>5/30/15</h4>
+
+  <section>
+    <p>
+      According to the <a href="http://ruby.bastardsbook.com/chapters/enumerables/">Bastard's Book of Ruby</a>, "The Enumerable module provides a set of methods to traverse, search, sort and manipulate collections." This is a fancy way of saying that enumerable methods are methods that allow easy looping through arrays and hashes easily. They are short cuts were made to be easier to write and read. The best way to understand enumerable methods is through <a href="http://ruby.bastardsbook.com/chapters/enumerables/">example</a>:
+    </p>
+    <p>
+      For printing out each element in an array you can use a for loop:
+      <p><code>ark = ['cat', 'dog', 'pig', 'goat']
+            for animal in ark
+              puts ark[animal]
+            end </code></p><br />
+      Alternatively, you can utilize the enumerable each method:
+      <p><code>ark = ['cat', 'dog', 'pig', 'goat']
+      ark.each do |animal|
+        puts animal
+      end</code></p>
+      Or:
+      <p><code>['cat', 'dog', 'pig', 'goat'].each{ |animal| puts animal }<code><br />
+      As you can see, the enumerable each method lets us make code that is much cleaner and tighter.
+    </p>
+    <p>
+      <h3>Searching</h3>
+      Enumerables are great for searching:
+      <img src="../imgs/EnumSearching1.png" />
+    </p>
+
+    <p>
+      <h3>Sorting</h3>
+      Enumerables are also useful for sorting:
+      <img src="../imgs/EnumSorting1.png"
+    </p>
+  </section>
+</main>
+
+<footer>
+    <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../imgs/linkedinicon.png" alt=LinkedIn></a>
+    <a href="https://github.com/pborel"><img id="github" src="../imgs/githubicon.png" alt=GitHub></a>
+    <p>For more information or to request a quote, email me at <a href=mailto:philborel21@gmail.com>philborel21@gmail.com</a></p>
+</footer>
+</html>
+
