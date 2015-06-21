@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/cheat-sheet.css">
+  <title>SQL Join - Cheat Sheet</title>
+</head>
+
+<body>
+  <h1>SQL Join - Cheat Sheet</h1>
+
+  <p>
+    <table>
+      <tr>
+        <td>
+          <h2 id='top'>Inner Join</h2>
+          <p>This is the simplest, most understood Join and is the most common. This query will return all of the records in the left table (table A) that have a matching record in the right table (table B). This Join is written as follows:</p>
+          <pre><code>SELECT [select_list]
+FROM Table_A A
+INNER JOIN Table_B B
+ON A.Key = B.Key</code></pre>
+          </td>
+          <td><img src="./imgs/cheat-sheet-imgs/INNER_JOIN.png"> </td>
+        </tr>
+
+        <tr>
+
+          <td>
+            <h2>Left Join</h2>
+            <p>This query will return all of the records in the left table (table A) regardless if any of those records have a match in the right table (table B). It will also return any matching records from the right table. This Join is written as follows:</p>
+            <pre><code>SELECT [select_list]
+FROM Table_A A
+LEFT JOIN Table_B B
+ON A.Key = B.Key</code></pre>
+            </td>
+            <td> <img src="./imgs/cheat-sheet-imgs/LEFT_JOIN.png"> </td>
+          </tr>
+
+          <tr>
+
+            <td>
+              <h2>Right Join</h2>
+              <p>This query will return all of the records in the right table (table B) regardless if any of those records have a match in the left table (table A). It will also return any matching records from the left table. This Join is written as follows:</p>
+              <pre><code>SELECT [select_list]
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.Key = B.Key</code></pre>
+              </td>
+              <td> <img src="./imgs/cheat-sheet-imgs/RIGHT_JOIN.png"> </td>
+            </tr>
+
+            <tr>
+
+              <td>
+                <h2>Outer Join</h2>
+                <p>This Join can also be referred to as a FULL OUTER JOIN or a FULL JOIN. This query will return all of the records from both tables, joining records from the left table (table A) that match records from the right table (table B). This Join is written as follows:</p>
+                <pre><code>SELECT [select_list]
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.Key = B.Key</code></pre>
+                </td>
+                <td> <img src="./imgs/cheat-sheet-imgs/FULL_OUTER_JOIN.png"> </td>
+              </tr>
+
+              <tr>
+
+                <td>
+                  <h2>Left Excluding JOIN</h2>
+                  <p>This query will return all of the records in the left table (table A) that do not match any records in the right table (table B). This Join is written as follows:</p>
+                  <pre><code>SELECT [select_list]
+FROM Table_A A
+LEFT JOIN Table_B B
+ON A.Key = B.Key
+WHERE B.Key IS NULL</code></pre>
+                  </td>
+                  <td> <img src="./imgs/cheat-sheet-imgs/LEFT_EXCLUDING_JOIN.png"> </td>
+                </tr>
+
+                <tr>
+
+                  <td>
+                    <h2>Right Excluding JOIN</h2>
+                    <p>This query will return all of the records in the right table (table B) that do not match any records in the left table (table A). This Join is written as follows:</p>
+                    <pre><code>SELECT [select_list]
+FROM Table_A A
+RIGHT JOIN Table_B B
+ON A.Key = B.Key
+WHERE A.Key IS NULL</code></pre>
+                    </td>
+                    <td> <img src="./imgs/cheat-sheet-imgs/RIGHT_EXCLUDING_JOIN.png"> </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <h2>Outer Excluding JOIN</h2>
+                      <p>This query will return all of the records in the left table (table A) and all of the records in the right table (table B) that do not match. I have yet to have a need for using this type of Join, but all of the others, I use quite frequently. This Join is written as follows:</p>
+                      <pre><code>SELECT [select_list]
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.Key = B.Key
+WHERE A.Key IS NULL OR B.Key IS NULL</code></pre>
+                      </td>
+                      <td><img src="./imgs/cheat-sheet-imgs/OUTER_EXCLUDING_JOIN.png"> </td>
+                    </tr>
+                  </table>
+                  <img id=reference src="./imgs/cheat-sheet-imgs/Visual_SQL_JOINS_V2.png">
+                </p>
+              </body>
+              </html>

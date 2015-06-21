@@ -1,0 +1,52 @@
+body {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: garamond;
+  font-size: 1.1em;
+}
+
+h1 {
+  text-align: center;
+  padding-top: .5em;
+}
+
+h2 {
+  border-top: solid;
+  padding-top: 30px;
+}
+
+#top {
+  border-top: none;
+}
+
+
+pre {
+  background: grey;
+  color: black;
+  padding: 10px;
+  font-size: 1.1em;
+  line-height: 20px;
+}
+
+img {
+  height: 174px;
+  width: 258px;
+}
+
+table {
+  margin-bottom: 2em;
+}
+
+#reference {
+  height: 550px;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+img {
+  margin-left: 5em;
+}
