@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phil Borel - Blog - Static vs. Dynamic Programming Languages</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+
+  <header>
+      <div id="nav-bar">
+       <ul id="nav-bar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="../blogindex.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+</head>
+
+<main>
+  <h1>Static vs. Dynamic Programming Languages</h1>
+  <h2>What's the Big Deal?</h2>
+  <h4>6/21/15</h4>
+
+  <section>
+    <p>
+      <h2>Statically-Typed Languages</h2>
+      In a statically-typed programming language, every single variable name <em>must</em> be bound to a type - integer, string, etc. - (at compile time by explicit data declaration) and an object (which is optional; if not bound to an object, the variable name will be null). Variable names can only be reassigned to another object of the same type. C, Java, and C++ are all statically-typed languages.
+    </p>
+    <p>
+      Advantages of statically-typed programming languages include the ability to detect errors earlier on (e.g. adding a boolean to a float), better documentation of type signatures (e.g. incorporating number and types of arguments when resolving names), more opportunities for compiler optimization (e.g. replacing virtual calls by direct calls when the exact type of the receiver is known statically), increased runtime efficiency (e.g. not all values need to carry a dynamic type), and a better design time developer experience (e.g. knowing the type of the receiver, the IDE can present a drop-down menu of all applicable members). In other words, statically-typed languages <em>can</em> be more efficient and less-error prone, but only in an impossibly perfect world.
+    </p>
+
+    <p>
+      <h2>Dynamically-Typed Languages</h2>
+      In a dynamically-typed programming language, all the variable names are bound to an object (unless null). Variable names are bound to objects at execution and they can change multiple times during execution through assignment statements. Ruby, Python, and JavaScript are all dynamically-typed languages.
+    </p>
+    <p>
+      Advantages of dynamically-typed programming languages include ease of integration with products/services that are prone to change (e.g. data and application integration) and for use in systems with unknown/changing requirements (e.g. every system ever). One can argue that dynamically-typed languages allow code to be more easily reusuable. It is also said that dynamic languages decrease development time (and therefore cost) because less boilerplate code is needed. However, because dynamic languages cannot type-check until compile time, programs written in dynamic languages are more prone to bugs. Though these bugs can be pretty easy to identify.
+    </p>
+
+    <p>
+      <h3>Conclusion</h3>
+      <a href="http://architects.dzone.com/articles/should-your-static-go-static">DZone</a> has already said it perfectly, so I will borrow their explanation: "Dynamic languages are good for fast quick development cycles and prototyping, while static languages are better suited to longer development cycles where trivial bugs could be extremely costly (telecommunication systems, air traffic control)."
+    </p>
+  </section>
+</main>
+
+<footer>
+    <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../imgs/linkedinicon.png" alt=LinkedIn></a>
+    <a href="https://github.com/pborel"><img id="github" src="../imgs/githubicon.png" alt=GitHub></a>
+    <p>For more information or to request a quote, email me at <a href=mailto:philborel21@gmail.com>philborel21@gmail.com</a></p>
+</footer>
+</html>
+
