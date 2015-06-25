@@ -151,19 +151,10 @@ input, textarea {
   max-width: 100%;
 }
 
-.center-container {
-  float: left;
-  position: relative;
-  left: 50%;
-  display: inline-block;
-  text-align: center;
-  right: auto;
-}
-
 .center-inner {
-  float: left;
+  float: center;
   position: relative;
-  right: 50%;
+  text-align: center;
 }
 
 .center-inner img {
