@@ -5,12 +5,29 @@ html, body {
   padding: 0;
   width: 100%;
   line-height: 1.4;
-  font-weight: 100;
+  font-weight: 200;
+}
+
+input, textarea {
+  max-width: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -125px; /* the bottom margin is the negative value of the footer's height */
+  max-width: 100%;
+}
+
+.push {
+  height: 125px; /* .push must be the same height as .footer */
 }
 
 .container {
   min-height: 100%;
   position: relative;
+  max-width: 100%;
 }
 
 .head {
@@ -18,13 +35,13 @@ html, body {
   padding: 0;
   height: 700px;
   background: #4F7F8A;
-  width: 100%;
+  max-width: 100%;
 }
 
 .head p {
   text-align: center;
   vertical-align: middle;
-  margin: 150px;
+  margin: 150px 0 0 0;
   padding: 50px 0 50px 0;
   color: #FFFFFF;
   font-weight: bold;
@@ -35,31 +52,13 @@ html, body {
 }
 
 .block {
-  margin: 25px 50px 25px 50px;
+  margin: 25px auto 25px auto;
   display: block;
   background-color: #FFFFFF;
-  max-width: 1180px;
-  min-width: auto;
+  width: 100%;
+  max-width: 1200px;
   padding: 0;
   border: 0;
-}
-
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #171918;
-  text-align: left;
-  height: 125px;
-}
-
-.footer p {
-  font-size: .8em;
-  font-weight: 300;
-  color: #FAFAFA;
-  text-align: center;
-  padding: 5px;
-  margin: 0;
 }
 
 .logo {
@@ -71,47 +70,39 @@ html, body {
   color: #E2D0C5;
 }
 
-.category {
-  float: left;
-  display: inline-block;
-  padding: 40px;
-  position: relative;
-}
-
-.category img {
-  max-width: 300px;
-}
-
 .paragraph {
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-.code {
+/*.code {
   background-color: #D1D1D1;
   padding: 5px;
   margin: 30px 0 30px 0;
-}
+}*/
 
 .title {
   text-align: center;
-  margin: 30px 0 30px 0;
+  margin: auto;
   padding: 0;
   font-size: 1.333em;
   font-weight: 660;
   font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #4F7F8A;
 }
 
 .title-bar {
   vertical-align: middle;
   text-align: center;
-  position: inline;
+/*  display: block;*/
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 50px;
   padding: 0;
-  font-size: 1.5em;
+  font-size: 1.333em;
   font-weight: 660;
   font-family: 'Montserrat', sans-serif;
   color: #FAFAFA;
@@ -119,25 +110,20 @@ html, body {
 
 .separator-bar {
   height: 135px;
-  min-width: 100%;
+  width: 100%;
   background-color: #4F7F8A;
   padding: 0;
-  margin: 0;
+  margin: 20px 0 0 0;
   text-align: center;
   display: inline-block;
 }
 
 .service {
-  display: inline-block;
-  max-width: 300px;
-  float: left;
-  padding: 0;
+  width: 300px;
+  padding: 30px;
   margin: 0;
-  position: relative;
-}
-
-#mid.service {
-  margin: 0 140px 0 140px;
+  text-align: center;
+  display: inline-block;
 }
 
 .service h3 {
@@ -153,14 +139,39 @@ html, body {
 .service p {
   text-align: center;
   padding: 0;
-  margin-bottom: 30px;
+  margin: 0;
 }
 
-.service img {
+#image {
   display: block;
-  margin: 0 50px 35px 50px;
+  margin: 35px 25px;
   padding: 0;
-  max-width: 200px
+  width: 250px;
+  height: auto;
+  max-width: 100%;
+}
+
+.center-container {
+  float: left;
+  position: relative;
+  left: 50%;
+  display: inline-block;
+  text-align: center;
+  right: auto;
+}
+
+.center-inner {
+  float: left;
+  position: relative;
+  right: 50%;
+}
+
+.center-inner img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 30px;
 }
 
 .nav-bar {
@@ -168,7 +179,7 @@ html, body {
   height: 52px;
   padding: 30px 0 0 0;
   background: #4F7F8A;
-  width: 100%;
+  max-width: 100%;
   text-align: right;
 }
 
@@ -211,37 +222,46 @@ html, body {
   background-color: #FFFFFF;
 }
 
-#nav-bar-elements {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#nav-bar-element {
-  display: block;
-}
-
 #nav-bar-right {
   padding-right: 0;
   margin: 0 200px 0 30px;
 }
 
-#linkedin {
-  display: inline;
-  width: auto;
-  height: 60px;
-  margin-left: 45%;
-  margin-right: auto;
-  padding-top: 20px;
+/*#contact-form {
+  background: #4F7F8A;
+  height: 300px;
+  width: 100%;
+  left: auto;
+  right: auto;
+  display: inline-block;
+  text-decoration: none;
+}*/
+
+.footer {
+  position: relative;
+  display: block;
+  bottom: 0;
+  top: 100%;
+  max-width: 100%;
+  background-color: #171918;
+  text-align: center;
+  height: 125px;
 }
 
-#github {
-  display: inline;
+.footer p {
+  font-size: .8em;
+  font-weight: 300;
+  color: #FAFAFA;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+}
+
+.footer img {
   width: auto;
   height: 60px;
-  margin: 10px;
-  margin: auto;
-  padding-top: 20px;
+  margin: 0;
+  padding: 20px 0 0 0;
 }
 
 /*--------------------------Blog--------------------------*/
