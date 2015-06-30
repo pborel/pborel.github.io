@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  line-height: 1.4;
+  line-height: 1.8;
   font-weight: 200;
 }
 
@@ -12,16 +12,21 @@ input, textarea {
   max-width: 100%;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -125px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -200px; /* the bottom margin is the negative value of the footer's height */
   max-width: 100%;
 }
 
 .push {
-  height: 125px; /* .push must be the same height as .footer */
+  height: 200px; /* .push must be the same height as .footer */
 }
 
 .container {
@@ -61,6 +66,44 @@ input, textarea {
   border: 0;
 }
 
+.block-solid {
+  display: block;
+  background-color: #707275;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 420px;
+  text-align: center;
+}
+
+.block-solid h2 {
+  /*text-transform: uppercase;*/
+  letter-spacing: 2px;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 660;
+  font-family: 'Montserrat', sans-serif;
+  color: #FAFAFA;
+  padding: 90px 0 30px 0;
+}
+
+.block-solid p {
+  font-size: 1.2em;
+  letter-spacing: 1.25px;
+  line-height: 1.8;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  font-weight: 600;
+  width: 600px;
+  text-align: center;
+  color: #FAFAFA;
+}
+
 .logo {
   float: left;
   padding: 0 0 0 50px;
@@ -68,12 +111,6 @@ input, textarea {
   font-weight: 660px;
   letter-spacing: 5px;
   color: #E2D0C5;
-}
-
-.paragraph {
-  margin: 0;
-  padding: 0;
-  text-align: center;
 }
 
 /*.code {
@@ -118,16 +155,34 @@ input, textarea {
   display: inline-block;
 }
 
-.service {
-  width: 300px;
+.short-description {
+  width: 370px;
   padding: 30px;
+  padding-bottom: 0;
   margin: 0;
-  text-align: center;
+  text-align: left;
   display: inline-block;
 }
 
-.service h3 {
-  text-align: center;
+.long-description {
+  width: 370px;
+  padding: 30px;
+  padding-bottom: 0;
+  margin: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.long-description h3 {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 3px;
+}
+
+.short-description h3 {
+  text-align: left;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -136,20 +191,17 @@ input, textarea {
   padding: 0;
 }
 
-.service p {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-#image {
+.circular {
   display: block;
   margin: 35px 25px;
   padding: 0;
-  width: 250px;
-  height: auto;
-  max-width: 100%;
-}
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  background: url("../imgs/phil-borel-portrait.jpeg") no-repeat;
+  }
 
 .center-inner {
   float: center;
@@ -161,8 +213,9 @@ input, textarea {
   width: 300px;
   max-width: 100%;
   height: auto;
-  margin: 0;
-  padding: 30px;
+  padding: 0;
+  margin: 30px;
+  border: 0 solid black;
 }
 
 .nav-bar {
@@ -218,31 +271,21 @@ input, textarea {
   margin: 0 200px 0 30px;
 }
 
-/*#contact-form {
-  background: #4F7F8A;
-  height: 300px;
-  width: 100%;
-  left: auto;
-  right: auto;
-  display: inline-block;
-  text-decoration: none;
-}*/
-
 .footer {
   position: relative;
   display: block;
   bottom: 0;
   top: 100%;
   max-width: 100%;
-  background-color: #171918;
+  background-color: #404245;
   text-align: center;
-  height: 125px;
+  height: 200px;
 }
 
 .footer p {
   font-size: .8em;
   font-weight: 300;
-  color: #FAFAFA;
+  color: #C0C0C0;
   text-align: center;
   padding: 5px;
   margin: 0;
@@ -251,8 +294,8 @@ input, textarea {
 .footer img {
   width: auto;
   height: 60px;
-  margin: 0;
-  padding: 20px 0 0 0;
+  margin: 55px 10px 5px 10px;
+  padding: 0;
 }
 
 /*--------------------------Blog--------------------------*/
