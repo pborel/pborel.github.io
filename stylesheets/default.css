@@ -39,7 +39,7 @@ p {
   margin: 0;
   padding: 0;
   height: 700px;
-  background: #4F7F8A;
+  background: #87CEEB;
   max-width: 100%;
 }
 
@@ -57,7 +57,7 @@ p {
 }
 
 .block {
-  margin: 25px auto 25px auto;
+  margin: 25px auto;
   display: block;
   background-color: #FFFFFF;
   width: 100%;
@@ -68,7 +68,7 @@ p {
 
 .block-solid {
   display: block;
-  background-color: #707275;
+  background-color: #5e696d;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -148,7 +148,7 @@ p {
 .separator-bar {
   height: 135px;
   width: 100%;
-  background-color: #4F7F8A;
+  background-color: #42C0FB;
   padding: 0;
   margin: 20px 0 0 0;
   text-align: center;
@@ -157,6 +157,7 @@ p {
 
 .short-description {
   width: 370px;
+  max-width: 80%;
   padding: 30px;
   padding-bottom: 0;
   margin: 0;
@@ -165,7 +166,8 @@ p {
 }
 
 .long-description {
-  width: 370px;
+  width: 430px;
+  max-width: 80%;
   padding: 30px;
   padding-bottom: 0;
   margin: 0;
@@ -193,13 +195,13 @@ p {
 
 .circular {
   display: block;
-  margin: 35px 25px;
+  margin: 25px auto 25px auto;
   padding: 0;
-  width: 300px;
-  height: 300px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
   background: url("../imgs/phil-borel-portrait.jpeg") no-repeat;
   }
 
@@ -271,13 +273,31 @@ p {
   margin: 0 200px 0 30px;
 }
 
+.contact-button {
+  font-weight: 600;
+  color: #FAFAFA;
+  background-color: #42C0FB;
+  width: 200px;
+  padding: 10px 30px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font-size: .9em;
+  font-style: uppercase;
+  text-decoration: none;
+}
+
+.divider {
+  height: 45px;
+}
+
 .footer {
   position: relative;
   display: block;
   bottom: 0;
   top: 100%;
   max-width: 100%;
-  background-color: #404245;
+  background-color: #364347;
   text-align: center;
   height: 200px;
 }
@@ -296,6 +316,10 @@ p {
   height: 60px;
   margin: 55px 10px 5px 10px;
   padding: 0;
+}
+
+#grey {
+  background-color: #f5f5f5;
 }
 
 /*--------------------------Blog--------------------------*/
