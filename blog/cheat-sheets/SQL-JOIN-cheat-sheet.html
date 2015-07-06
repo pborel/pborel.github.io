@@ -9,7 +9,6 @@
       SQL Join - Cheat Sheet
     </title>
 
-    <header>
       <div class="nav-bar">
          <ul>
             <li><a href="../../index.html">Home</a></li>
@@ -19,25 +18,25 @@
             <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
           </ul>
         </div>
-    </header>
 
   </head>
 
 <body>
+  <div class="container">
   <h1>SQL Join - Cheat Sheet</h1>
 
   <p>
     <table>
       <tr>
         <td>
-          <h2 id='top'>Inner Join</h2>
+          <h2>Inner Join</h2>
           <p>This is the simplest, most understood Join and is the most common. This query will return all of the records in the left table (table A) that have a matching record in the right table (table B). This Join is written as follows:</p>
           <pre><code>SELECT [select_list]
 FROM Table_A A
 INNER JOIN Table_B B
 ON A.Key = B.Key</code></pre>
           </td>
-          <td><img src="./imgs/cheat-sheet-imgs/INNER_JOIN.png"> </td>
+          <td><img src="../../imgs/cheat-sheet-imgs/INNER_JOIN.png"></td>
         </tr>
 
         <tr>
@@ -50,7 +49,7 @@ FROM Table_A A
 LEFT JOIN Table_B B
 ON A.Key = B.Key</code></pre>
             </td>
-            <td> <img src="./imgs/cheat-sheet-imgs/LEFT_JOIN.png"> </td>
+            <td> <img src="../../imgs/cheat-sheet-imgs/LEFT_JOIN.png"> </td>
           </tr>
 
           <tr>
@@ -63,7 +62,7 @@ FROM Table_A A
 RIGHT JOIN Table_B B
 ON A.Key = B.Key</code></pre>
               </td>
-              <td> <img src="./imgs/cheat-sheet-imgs/RIGHT_JOIN.png"> </td>
+              <td> <img src="../../imgs/cheat-sheet-imgs/RIGHT_JOIN.png"> </td>
             </tr>
 
             <tr>
@@ -76,7 +75,7 @@ FROM Table_A A
 FULL OUTER JOIN Table_B B
 ON A.Key = B.Key</code></pre>
                 </td>
-                <td> <img src="./imgs/cheat-sheet-imgs/FULL_OUTER_JOIN.png"> </td>
+                <td> <img src="../../imgs/cheat-sheet-imgs/FULL_OUTER_JOIN.png"> </td>
               </tr>
 
               <tr>
@@ -90,7 +89,7 @@ LEFT JOIN Table_B B
 ON A.Key = B.Key
 WHERE B.Key IS NULL</code></pre>
                   </td>
-                  <td> <img src="./imgs/cheat-sheet-imgs/LEFT_EXCLUDING_JOIN.png"> </td>
+                  <td> <img src="../../imgs/cheat-sheet-imgs/LEFT_EXCLUDING_JOIN.png"> </td>
                 </tr>
 
                 <tr>
@@ -104,7 +103,7 @@ RIGHT JOIN Table_B B
 ON A.Key = B.Key
 WHERE A.Key IS NULL</code></pre>
                     </td>
-                    <td> <img src="./imgs/cheat-sheet-imgs/RIGHT_EXCLUDING_JOIN.png"> </td>
+                    <td> <img src="../../imgs/cheat-sheet-imgs/RIGHT_EXCLUDING_JOIN.png"> </td>
                   </tr>
 
                   <tr>
@@ -117,10 +116,10 @@ FULL OUTER JOIN Table_B B
 ON A.Key = B.Key
 WHERE A.Key IS NULL OR B.Key IS NULL</code></pre>
                       </td>
-                      <td><img src="./imgs/cheat-sheet-imgs/OUTER_EXCLUDING_JOIN.png"> </td>
+                      <td><img src="../../imgs/cheat-sheet-imgs/OUTER_EXCLUDING_JOIN.png"> </td>
                     </tr>
                   </table>
-                  <img id=reference src="./imgs/cheat-sheet-imgs/Visual_SQL_JOINS_V2.png">
+                  <img id=reference src="../../imgs/cheat-sheet-imgs/Visual_SQL_JOINS_V2.png">
                 </p>
   <div class="block-solid">
         <h2><a name="contact">Want to work with me?</a></h2>
@@ -142,6 +141,8 @@ WHERE A.Key IS NULL OR B.Key IS NULL</code></pre>
           </p>
         </div>
       </div>
+      </div>
   </body>
+
 
 </html>

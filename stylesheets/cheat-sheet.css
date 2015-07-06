@@ -13,14 +13,9 @@ h2 {
   padding-top: 30px;
 }
 
-#top {
-  border-top: none;
-}
-
-
 pre {
-  background: grey;
-  color: black;
+  background-color: #42C0FB;
+  color: #FFF;
   padding: 10px;
   font-size: 1.1em;
   line-height: 20px;
