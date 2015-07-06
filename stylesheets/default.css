@@ -55,12 +55,8 @@ a:hover {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -200px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto;
   max-width: 100%;
-}
-
-.push {
-  height: 200px; /* .push must be the same height as .footer */
 }
 
 .container {
@@ -82,7 +78,7 @@ a:hover {
   display: block;
   background-color: #5e696d;
   width: 100%;
-  margin: 0;
+  margin: 40px 0 0 0;
   padding: 80px 0;
   border: 0;
   text-align: center;
@@ -249,13 +245,13 @@ a:hover {
   border: 0 solid black;
 }
 
-/*.nav-bar {
-  margin: 0;
-  height: 700px;
-  padding: 30px 0 0 0;
+.nav-bar {
+  margin: 0 0 40px 0;
+  height: 30px;
+  padding: 15px 0;
   background: #42C0FB;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
 }
 
 .nav-bar ul {
@@ -266,7 +262,7 @@ a:hover {
 
 .nav-bar ul li {
   margin: 30px;
-  padding: 0;
+  padding: 20px 0;
   display: inline;
 }
 
@@ -288,18 +284,13 @@ a:hover {
 
 .nav-bar a:hover {
   margin: 0;
-  padding: .3em .4em .3em .4em;
+  padding: 25px;
   text-decoration: none;
   font-weight: bold;
   color: #87CEEB;
   font-size: .9em;
   background-color: #FFFFFF;
 }
-
-#nav-bar-right {
-  padding-right: 0;
-  margin: 0 200px 0 30px;
-}*/
 
 #about {
   padding: 40px 0;
