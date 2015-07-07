@@ -29,7 +29,7 @@
     <table>
       <tr>
         <td>
-          <h2>Inner Join</h2>
+          <h2 class="title">Inner Join</h2>
           <p>This is the simplest, most understood Join and is the most common. This query will return all of the records in the left table (table A) that have a matching record in the right table (table B). This Join is written as follows:</p>
           <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -42,7 +42,7 @@ ON A.Key = B.Key</code></pre>
         <tr>
 
           <td>
-            <h2>Left Join</h2>
+            <h2 class="title">Left Join</h2>
             <p>This query will return all of the records in the left table (table A) regardless if any of those records have a match in the right table (table B). It will also return any matching records from the right table. This Join is written as follows:</p>
             <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -55,7 +55,7 @@ ON A.Key = B.Key</code></pre>
           <tr>
 
             <td>
-              <h2>Right Join</h2>
+              <h2 class="title">Right Join</h2>
               <p>This query will return all of the records in the right table (table B) regardless if any of those records have a match in the left table (table A). It will also return any matching records from the left table. This Join is written as follows:</p>
               <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -68,7 +68,7 @@ ON A.Key = B.Key</code></pre>
             <tr>
 
               <td>
-                <h2>Outer Join</h2>
+                <h2 class="title">Outer Join</h2>
                 <p>This Join can also be referred to as a FULL OUTER JOIN or a FULL JOIN. This query will return all of the records from both tables, joining records from the left table (table A) that match records from the right table (table B). This Join is written as follows:</p>
                 <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -81,7 +81,7 @@ ON A.Key = B.Key</code></pre>
               <tr>
 
                 <td>
-                  <h2>Left Excluding JOIN</h2>
+                  <h2 class="title">Left Excluding JOIN</h2>
                   <p>This query will return all of the records in the left table (table A) that do not match any records in the right table (table B). This Join is written as follows:</p>
                   <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -95,7 +95,7 @@ WHERE B.Key IS NULL</code></pre>
                 <tr>
 
                   <td>
-                    <h2>Right Excluding JOIN</h2>
+                    <h2 class="title">Right Excluding JOIN</h2>
                     <p>This query will return all of the records in the right table (table B) that do not match any records in the left table (table A). This Join is written as follows:</p>
                     <pre><code>SELECT [select_list]
 FROM Table_A A
@@ -108,7 +108,7 @@ WHERE A.Key IS NULL</code></pre>
 
                   <tr>
                     <td>
-                      <h2>Outer Excluding JOIN</h2>
+                      <h2 class="title">Outer Excluding JOIN</h2>
                       <p>This query will return all of the records in the left table (table A) and all of the records in the right table (table B) that do not match. I have yet to have a need for using this type of Join, but all of the others, I use quite frequently. This Join is written as follows:</p>
                       <pre><code>SELECT [select_list]
 FROM Table_A A

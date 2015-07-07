@@ -33,13 +33,15 @@
     </p>
     <p>
       <h3>Cost of Using Linked Lists</h3>
-        The cost of accessing a node increases linearly as the node is farther down the list. The cost to access the first node after the head node is low, but the cost to access the last node can be high if the linked list is long. The cost to access an element in an array is fixed, regardless of the elements position. Because of this, arrays are usually more efficient.
+        The cost of accessing a node increases linearly as the node is farther down the list. The cost to access the first node after the head node is low, but the cost to access the last node can be high if the linked list is long. The cost to access an element in an array is fixed, regardless of the element's position. Because of this, arrays are usually more efficient.
     </p>
     <p>
       <h3>Why Not Just Use Arrays?</h3>
-    </p>
-    <p>
-
+      <ol>
+        <li>Because an array allocates one chunk of memory based off of its size, it assumes that every element in the array will be the same (equal) size. With a linked list, you can have different nodes with different sized data. This can be more efficient because space is not wasted.</li>
+        <li>An array's size must be known at the onset. If you need to make the array bigger, you have to re-create it. If your array is too big, it is wasting memory. A linked list can grow organically. As you add nodes, the list grows.</li>
+        <li>Sorting/shuffling an array takes time. Shuffling a linked list is as simple as reconnecting nodes.</li>
+      </ol>
     </p>
     <p>
       <h3>References and Continued Study</h3>
