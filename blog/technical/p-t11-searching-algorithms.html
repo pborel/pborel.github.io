@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phil Borel - Blog - Searching Algorithms (Binary and Linear Search)</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/default.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/blog-stylesheet.css">
+
+      <header>
+        <div class="nav-bar">
+           <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../blogindex.html">Blog</a></li>
+              <li><a href="../../blog-technical.html">Technical</a></li>
+              <li><a href="../../blog-cultural.html">Cultural</a></li>
+              <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
+            </ul>
+          </div>
+      </header>
+  </head>
+
+  <body>
+    <div class="outer">
+      <section class="container">
+
+        <h2 class="title">Searching Algorithms (Binary and Linear Search)</h2>
+        <h4 class="date">7/11/15</h4>
+
+
+          <p>
+            <h3>Binary Search</h3>
+            Binary search searches through a data set by comparing the middle value to the input value. If the input value is greater than the middle value, it looks at the upper half of the data set and repeats its search. If the input value is less than the middle value, it looks at the lower half of the data set and repeats its search. Because of this, binary search requires the input data to be sorted. Binary search is considered to be one of the most cost-effective searching algorithms.
+            <ol>
+              <li>The input data set must be sorted.</li>
+              <li>Binary search requires random access to the input data set.</li>
+              <li>The cost of binary search is O(log n).</li>
+            </ol>
+            <pre><code>
+    def binary_search(num, sorted_array, min=0, max=(sorted_array.length-1))
+      middle = (max + min) / 2
+
+      return -1 if min > max
+
+      if num < sorted_array[middle]
+        binary_search(num, sorted_array, min, (middle - 1))
+      elsif num > sorted_array[middle]
+        binary_search(num, sorted_array, (middle + 1), max)
+      else
+        middle
+      end
+    end
+            </code></pre>
+          </p>
+          <p>
+            <h3>Linear Search</h3>
+            Linear search (also called sequential search) searches through a set of data one by one starting from the beginning and ending once the wanted value is found.
+            <ol>
+              <li>The set of data does not have to be sorted (linear search can stream data of arbitrary size).</li>
+              <li>Linear search requires equality comparisons for the input data set (like an array or a hash).</li>
+              <li>The cost of linear search is O(n).</li>
+            </ol>
+              <pre><code>
+    def linear_search(obj, arr)
+      index = 0
+      while arr.length >= index
+        if arr[index] != obj
+          index += 1
+        else
+          return index
+        end
+      end
+      return nil
+    end
+
+    def global_linear_search(obj, arr)
+      answer = []
+      index = 0
+      while arr.length >= index
+        if arr[index] != obj
+          index += 1
+        else
+          answer << index
+          index += 1
+        end
+      end
+      return answer.length > 0 ? answer : nil
+    end
+            </code></pre>
+          </p>
+          <p>
+            <h3>Differences Between the Two</h3>
+              <ul>
+              <li>Binary search requires the input data to be sorted; linear search does not - therfore, linear search can stream data of arbitrary size.</li>
+              <li>Binary search requires an ordering comparison; linear search only requires equality comparisons.</li>
+              <li>The cost of binary search is O(log n); the cost of linear search is O(n).</li>
+              </ul>
+          </p>
+          <p>
+            <h3>Benchmarking in Ruby</h3>
+          <pre><code>
+    n = 500
+    array = (0..n).to_a
+
+    Benchmark.bm do |bm|
+
+      bm.report do
+        n.times do
+          index(n, array)
+        end
+      end
+
+      bm.report do
+        n.times do
+          binary_search(n, array)
+        end
+      end
+
+      bm.report do
+        n.times do
+          linear_search(n, array)
+        end
+      end
+
+      bm.report do
+        n.times do
+          global_linear_search(n, array)
+        end
+      end
+    end
+            </pre></code>
+            <img src="../../imgs/binary-linear-index-search.png">
+          </p>
+
+          <p>
+            <h3>References and Continued Study</h3>
+            <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
+            <a href="http://cslibrary.stanford.edu/103/LinkedListBasics.pdf">Linked List Basics</a>
+          </p>
+        </section>
+      <div class="block-solid">
+        <h2><a name="contact">Want to work with me?</a></h2>
+
+        <div class="center-inner">
+          <p>I'm currently taking on new projects and looking for a job. Please contact me if you would like to work together.</p>
+          <p><a class="cta-button" href="mailto:philborel21@gmail.com">SEND ME AN EMAIL</a></p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="center-inner">
+          <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../../imgs/linkedinicon.png" alt="LinkedIn"></a>
+
+          <a href="https://github.com/pborel"><img id="github" src="../../imgs/githubicon.png" alt="GitHub"></a>
+
+          <p>&copy; 2015 Phil Borel. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
