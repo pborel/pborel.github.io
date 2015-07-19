@@ -3,86 +3,92 @@
 <head>
   <title>Phil Borel - Blog - T9 - Pointers</title>
   <meta charset="UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css">
+
   <link rel="stylesheet" type="text/css" href="../../stylesheets/default.css">
 
-    <header>
-      <div class="nav-bar">
-         <ul>
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="../../blogindex.html">Blog</a></li>
-            <li><a href="../../blog-technical.html">Technical</a></li>
-            <li><a href="../../blog-cultural.html">Cultural</a></li>
-            <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
-          </ul>
-        </div>
-    </header>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/blog-stylesheet.css">
+
+  <header>
+    <div class="nav-bar">
+     <ul>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../blogindex.html">Blog</a></li>
+      <li><a href="../../blog-technical.html">Technical</a></li>
+      <li><a href="../../blog-cultural.html">Cultural</a></li>
+      <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
+    </ul>
+  </div>
+</header>
 </head>
 
 <body>
-  <h1>Pointers</h1>
-  <h4>7/4/15</h4>
+  <div class="outer">
+      <section class="container">
+  <h2 class="title">T9 - Pointers</h1>
+  <h4 class="date">7/4/15</h4>
 
   <section>
     <p>
       <h3>What are Pointers?</h3>
       An understanding of pointers is essential for understanding most programming algorithms used commonly today. On the most basic level, pointers are variables. Pointers are references to memory blocks that contain a stored value. They are used to reference a value <em>already</em> stored in memory. They are not the value they are referencing. They are not the memory block they are referencing. The value they are referencing can change and pointers can reference a new memory block at any time.
-      </br>
-      <h3>How Does This Help Me?</h3>
-      <ol>
-        <li>They allow different sections of code to easily share data. This can also be accomplished by copying the data, but pointers allow you to do this with minimal code.</li>
-        <li>They are the foundation for more complex "linked" data structures (linked lists, binary trees).</li>
-      </ol>
-      A quick example: </br>
-      We have an int called num. We also have a pointer called numPtr. numPtr references the memory location of num. We can get the value of num through numPtr by using <strong>dereference</strong>.
-    </p>
-    <p>
-      <h3>Dereference</h3>
-      Dereference is an operation that collects the value of the pointee (the variable that the pointer points to). You can use the dereference operation if and ONLY if the pointer is pointing to a value (has a pointee). The vast majority of pointer bugs result from the dereference operation being called on a pointer without a pointee. A pointer must have a pointee assigned before a dereference operation will work.
-    </p>
-    <p>
-      <h3>Pointer Assignment</h3>
-      We assign pointers with the assignment operator (=): e.g. p2 = p1. This means that p2 now points to the same pointee that p1 pointed to at the time of assignment. p2 does not point to p1. p1 is not the pointee of p2. p2 points to the pointee of p1. When two pointers reference the same pointee we call it "sharing."
-    </p>
-    <p>
-      <h3>The Null Pointer</h3>
-      The value null is the same as the value 0 and can therefore be used as a boolean false. A null pointer is a pointer that "points to nothing." However, this is tricky. A pointer that is unitialized (it was never pointed to a value when it was created), is a bad pointer. Bad pointers are not null pointers and they can ruin your life (depending on the programming language you use - compiled languages are nicer to programmers who forget to initialize their pointers). Calling a dereference operator on a null pointer (or a bad pointer) will return a runtime error. Assigning a pointer (p2) to a null pointer (p1) will copy the null value of p1 to p2.
-    </p>
-    <p>
-      <h3>Copying</h3>
-      Sharing is when one pointer points to the same pointee of another pointer. This means that two points point to the same memory location - the same pointee. They "share" this pointee. This pointee is also called a "shallow copy." This is good because it is easier for the computer to point two pointers to the same memory location than it is to create a whole new variable to store the same value for the second pointer.
-      </br></br>Copying (or "deep copy") is when one pointer copies the value of another pointer. A whole new value has to be stored in memory. This new value is identical to another value (which is redundant). This is good because each pointer has their own unique copy of the value. p1's pointee's value can change without affecting p2's pointee's value.
-      </br></br>It is easier/quicker to share a value between two pointers than to make a new copy of the memory location to be referenced by a second pointer. However, sharing is dangerous. If p2 deletes or alters the shared value, p1 suffers the consequences of having a deleted or altered pointee.
-    </p>
-    <p>
-    <h3>How Does All of This Work?</h3>
-    Think of it like this: 1) the pointee must exist (have memory allocated to it - except in the case of a null pointer), 2) the pointer must exist (have memory allocated to it), 3) the pointer must point to the pointee (or else it's a bad pointer and your life will be ruined).
-    </p>
-    <p>
-      <h3>References and Continued Study</h3>
-      <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
-      <a href="http://cslibrary.stanford.edu/103/LinkedListBasics.pdf">Linked List Basics</a>
-    </p>
-  </section>
-<div class="block-solid">
+    </br>
+    <h3>How Does This Help Me?</h3>
+    <ol>
+      <li>They allow different sections of code to easily share data. This can also be accomplished by copying the data, but pointers allow you to do this with minimal code.</li>
+      <li>They are the foundation for more complex "linked" data structures (linked lists, binary trees).</li>
+    </ol>
+    A quick example: </br>
+    We have an int called num. We also have a pointer called numPtr. numPtr references the memory location of num. We can get the value of num through numPtr by using <strong>dereference</strong>.
+  </p>
+  <p>
+    <h3>Dereference</h3>
+    Dereference is an operation that collects the value of the pointee (the variable that the pointer points to). You can use the dereference operation if and ONLY if the pointer is pointing to a value (has a pointee). The vast majority of pointer bugs result from the dereference operation being called on a pointer without a pointee. A pointer must have a pointee assigned before a dereference operation will work.
+  </p>
+  <p>
+    <h3>Pointer Assignment</h3>
+    We assign pointers with the assignment operator (=): e.g. p2 = p1. This means that p2 now points to the same pointee that p1 pointed to at the time of assignment. p2 does not point to p1. p1 is not the pointee of p2. p2 points to the pointee of p1. When two pointers reference the same pointee we call it "sharing."
+  </p>
+  <p>
+    <h3>The Null Pointer</h3>
+    The value null is the same as the value 0 and can therefore be used as a boolean false. A null pointer is a pointer that "points to nothing." However, this is tricky. A pointer that is unitialized (it was never pointed to a value when it was created), is a bad pointer. Bad pointers are not null pointers and they can ruin your life (depending on the programming language you use - compiled languages are nicer to programmers who forget to initialize their pointers). Calling a dereference operator on a null pointer (or a bad pointer) will return a runtime error. Assigning a pointer (p2) to a null pointer (p1) will copy the null value of p1 to p2.
+  </p>
+  <p>
+    <h3>Copying</h3>
+    Sharing is when one pointer points to the same pointee of another pointer. This means that two points point to the same memory location - the same pointee. They "share" this pointee. This pointee is also called a "shallow copy." This is good because it is easier for the computer to point two pointers to the same memory location than it is to create a whole new variable to store the same value for the second pointer.
+  </br></br>Copying (or "deep copy") is when one pointer copies the value of another pointer. A whole new value has to be stored in memory. This new value is identical to another value (which is redundant). This is good because each pointer has their own unique copy of the value. p1's pointee's value can change without affecting p2's pointee's value.
+</br></br>It is easier/quicker to share a value between two pointers than to make a new copy of the memory location to be referenced by a second pointer. However, sharing is dangerous. If p2 deletes or alters the shared value, p1 suffers the consequences of having a deleted or altered pointee.
+</p>
+<p>
+  <h3>How Does All of This Work?</h3>
+  Think of it like this: 1) the pointee must exist (have memory allocated to it - except in the case of a null pointer), 2) the pointer must exist (have memory allocated to it), 3) the pointer must point to the pointee (or else it's a bad pointer and your life will be ruined).
+</p>
+<p>
+  <h3>References and Continued Study</h3>
+  <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
+  <a href="http://cslibrary.stanford.edu/103/LinkedListBasics.pdf">Linked List Basics</a>
+</p>
+</section>
+   </div>
+      <div class="block-solid">
         <h2><a name="contact">Want to work with me?</a></h2>
 
-          <div class="center-inner">
-            <p>I'm currently taking on new projects and looking for a job. Please contact me if you would like to work together.</p>
-            <p><a class="cta-button" href="mailto:philborel21@gmail.com">SEND ME AN EMAIL</a></p>
-        </div>
-      </div>
-
-    <div class="footer">
         <div class="center-inner">
-            <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../../imgs/linkedinicon.png" alt="LinkedIn"></a>
-
-            <a href="https://github.com/pborel"><img id="github" src="../../imgs/githubicon.png" alt="GitHub"></a>
-
-          <p>
-            &copy; 2015 Phil Borel. All rights reserved.
-          </p>
+          <p>I'm currently taking on new projects and looking for a job. Please contact me if you would like to work together.</p>
+          <p><a class="cta-button" href="mailto:philborel21@gmail.com">SEND ME AN EMAIL</a></p>
         </div>
       </div>
-    </body>
-</html>
 
+      <div class="footer">
+        <div class="center-inner">
+          <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../../imgs/linkedinicon.png" alt="LinkedIn"></a>
+
+          <a href="https://github.com/pborel"><img id="github" src="../../imgs/githubicon.png" alt="GitHub"></a>
+
+          <p>&copy; 2015 Phil Borel. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

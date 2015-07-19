@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phil Borel - Blog - Linked Lists</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/default.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/blog-stylesheet.css">
+
+      <header>
+        <div class="nav-bar">
+           <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../blogindex.html">Blog</a></li>
+              <li><a href="../../blog-technical.html">Technical</a></li>
+              <li><a href="../../blog-cultural.html">Cultural</a></li>
+              <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
+            </ul>
+          </div>
+      </header>
+  </head>
+
+  <body>
+    <div class="outer">
+      <section class="container">
+
+        <h2 class="title">Linked Lists</h2>
+        <h4 class="date">7/7/15</h4>
+
+
+          <p>
+            <h3>What are Linked Lists?</h3>
+            Think of an array. It stores a collection of data. Linked lists are similar because they also store a collection of data. They store elements on behalf of client code. An array gets one large chunk of memory and each element is partitioned a portion of that memory chunk. A linked list allocates memory for each individual element (also called a "node"). A linked list gets its structure by using pointers to connect all its nodes together like links in a chain.
+          </p>
+          <p>
+            <h3>Nodes</h3>
+              A node has two fields: a "data" field that stores the node's data, and a "next" field which is a pointer that points to the next node in the list. Every node in a linked list is allocated in the heap with a call to malloc(), therefore the node memory exists until it is deallocated with a call to free(). At the front of the list lies a pointer to the first node. This "head" node exists in the stack (not the heap like the rest of the nodes in the linked list). So a linked list starts with a head (the initial pointer node), then has nodes that contain data and pointers to the subsequent node, and finally the last node has its pointer set to NULL to mark the end of the list.
+          </p>
+          <p>
+            <h3>Cost of Using Linked Lists</h3>
+              The cost of accessing a node increases linearly as the node is farther down the list. The cost to access the first node after the head node is low, but the cost to access the last node can be high if the linked list is long. The cost to access an element in an array is fixed, regardless of the element's position. Because of this, arrays are usually more efficient.
+          </p>
+          <p>
+            <h3>Why Not Just Use Arrays?</h3>
+            <ol>
+              <li>Because an array allocates one chunk of memory based off of its size, it assumes that every element in the array will be the same (equal) size. With a linked list, you can have different nodes with different sized data. This can be more efficient because space is not wasted.</li>
+              <li>An array's size must be known at the onset. If you need to make the array bigger, you have to re-create it. If your array is too big, it is wasting memory. A linked list can grow organically. As you add nodes, the list grows.</li>
+              <li>Sorting/shuffling an array takes time. Shuffling a linked list is as simple as reconnecting nodes.</li>
+            </ol>
+          </p>
+          <p>
+            <h3>References and Continued Study</h3>
+            <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
+            <a href="http://cslibrary.stanford.edu/103/LinkedListBasics.pdf">Linked List Basics</a>
+          </p>
+        </section>
+      <div class="block-solid">
+        <h2><a name="contact">Want to work with me?</a></h2>
+
+        <div class="center-inner">
+          <p>I'm currently taking on new projects and looking for a job. Please contact me if you would like to work together.</p>
+          <p><a class="cta-button" href="mailto:philborel21@gmail.com">SEND ME AN EMAIL</a></p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="center-inner">
+          <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../../imgs/linkedinicon.png" alt="LinkedIn"></a>
+
+          <a href="https://github.com/pborel"><img id="github" src="../../imgs/githubicon.png" alt="GitHub"></a>
+
+          <p>&copy; 2015 Phil Borel. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
