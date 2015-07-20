@@ -2,6 +2,12 @@ class BlogIndexPage
   def initialize
     @blog_post_excerpts = []
   end
+
+  def fill_blog_post_db
+    array.each do |t, e|
+      post = BlogPostExcerpt.new({title: t, excerpt: e})
+    end
+  end
 end
 
 class BlogPostExcerpt
