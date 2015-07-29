@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phil Borel - Blog - Binary Trees</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/default.css">
+
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/blog-stylesheet.css">
+
+      <header>
+        <div class="nav-bar">
+           <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../blogindex.html">Blog</a></li>
+              <li><a href="../../blog-technical.html">Technical</a></li>
+              <li><a href="../../blog-cultural.html">Cultural</a></li>
+              <li><a href="../cheat-sheets/SQL-JOIN-cheat-sheet.html">Cheatsheets</a></li>
+            </ul>
+          </div>
+      </header>
+  </head>
+
+  <body>
+    <div class="outer">
+      <section class="container">
+
+        <h2 class="title">T14 - Binary Trees</h2>
+        <h4 class="date">7/7/15</h4>
+
+
+          <p>
+            <h5>An understanding of <a href="file:///Users/PhilBorel/Desktop/DBC/U1.W1/GitHub/GitHub-Site/blog/technical/p-t10-linked-lists.html">linked lists and nodes</a> is recommended before making attempts to comprehend the following material.</h5>
+
+            <h3>What is a Binary Tree?</h3>
+            As noted by <a href="http://cslibrary.stanford.edu/110/BinaryTrees.html">a paper on binary trees by Standford</a>, "The formal recursive definition is: a binary tree is either empty (represented by a null pointer), or is made of a single node, where the left and right pointers (recursive definition ahead) each point to a binary tree." A binary tree is a pretty much just complex connection of linked lists. They are usually visually represented as an upside-down tree-like thing (think org chart or family tree). Binary trees are composed of a "root" node which points to the start (topmost) node of the tree. Each subsequent left and right pointers of each node recursively point to additional nodes which represent subtrees (just look at the picture below if that was hard to take in). These subtrees are called "branches." The final nodes in the tree, which possess no more nodes "beneath" them are denoted as the "leaves." If it wasn't obvious before, leaves have NULL pointers. Binary trees are a good general purpose data structure. They are a jack-of-all-trades, not great nor terrible but okay for most functions that need to be performed on a set of data (e.g. lookups, inserts, deletes, etc). The height of a binary tree can be derived from the maximum branch length. The tree below has a height of 3 because its longest branch has a length of 3 (in this example the two main branches both have a length of 3). The size of a binary tree is found by counting the number of nodes that are contained by the tree. The example below has a size of 6.
+            </br></br>
+            <img src="../../imgs/binary-tree.png">
+            </br></br>
+          </p>
+          <p>
+            <h3>Ordered Binary Tree</h3>
+            Every single node on a binary tree will consist of three things: a value, a link to the node's left subtree, and a link to the node's right subtree. An ordered binary tree is sorted with the following logic: each node has a child node that is less than or equal to it's own value on it's left and a second child node that is greater than or equal to it's own value on it's right. The above binary tree is ordered in this manner. An unbalanced binary tree is one in which the above logic is not properly applied.
+          </p>
+          <p>
+            <h3>The Cost of Binary Trees and Their Common Uses</h3>
+            The cost of using an ordered binary tree with N nodes is log(N)*(log base 2). Binary trees are used in many applications including:
+            <ul>
+              <li>Search functions performed on map and set objects found in many programming language libraries,</li>
+              <li><a href="https://en.wikipedia.org/wiki/Binary_space_partitioning">Binary space partitioning</a> which helps video game engines determine which objects must be rendered,</li>
+              <li><a href="https://en.wikipedia.org/wiki/Radix_tree">Binary tries</a> which are used in storing <a href="https://en.wikipedia.org/wiki/Routing_table">routing tables</a> for network routers,</li>
+              <li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)">Heaps</a> for efficient <a href="http://pages.cs.wisc.edu/~vernon/cs367/notes/11.PRIORITY-Q.html">priority queues</a> which are used for managing processes in many OSs,</li>
+              <li>And <a href="http://stackoverflow.com/questions/2130416/what-are-the-applications-of-binary-trees">many more</a>.
+            </ul>
+          </p>
+          <p>
+            <h3>The Lookup Function</h3>
+            Lookups are used to find a specific value in a binary tree. They are usually performed recursively on a binary tree with a base case of an empty tree/node (NULL pointers). Until the base case is met (in which case the sought after value is not in the tree) or until the sought after value is found, the algorithm will search each node in a breadth-first manner per node. If the tree is sorted, the algorithm will look to the left and right nodes attached to the current node to compare their values (left is always less than or equal to the current node and right is always greater than or equal to the current node).
+          </p>
+          <p>
+            <h3>The Insert Function</h3>
+            We will probably want to add new values to a tree over time, but if the tree is already sorted we will need to add the value to the correct location. We will have to create a new node, adding the value at the end of the tree and then re-sort the tree.
+          </p>
+          <p>
+            <h3>References and Continued Study</h3>
+            <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
+            <a href="http://cslibrary.stanford.edu/103/LinkedListBasics.pdf">Linked List Basics</a></br>
+            <a href="http://cslibrary.stanford.edu/110/BinaryTrees.html">Binary Trees</a>
+          </p>
+        </section>
+      <div class="block-solid">
+        <h2><a name="contact">Want to work with me?</a></h2>
+
+        <div class="center-inner">
+          <p>I'm currently taking on new projects and looking for a job. Please contact me if you would like to work together.</p>
+          <p><a class="cta-button" href="mailto:philborel21@gmail.com">SEND ME AN EMAIL</a></p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="center-inner">
+          <a href="https://www.linkedin.com/in/philborel"><img id="linkedin" src="../../imgs/linkedinicon.png" alt="LinkedIn"></a>
+
+          <a href="https://github.com/pborel"><img id="github" src="../../imgs/githubicon.png" alt="GitHub"></a>
+
+          <p>&copy; 2015 Phil Borel. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
