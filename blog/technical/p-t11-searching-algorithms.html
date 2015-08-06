@@ -45,21 +45,24 @@
               <li>Binary search requires random access to the input data set.</li>
               <li>The cost of binary search is O(log n).</li>
             </ol>
-            <pre><code>
-    def binary_search(num, sorted_array, min=0, max=(sorted_array.length-1))
-      middle = (max + min) / 2
+            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">binary_search</span>(num, sorted_array, min<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>, max<span style="color: #333333">=</span>(sorted_array<span style="color: #333333">.</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>))
+  middle <span style="color: #333333">=</span> (max <span style="color: #333333">+</span> min) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>
 
-      return -1 if min > max
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #008800; font-weight: bold">if</span> min <span style="color: #333333">&gt;</span> max
 
-      if num < sorted_array[middle]
-        binary_search(num, sorted_array, min, (middle - 1))
-      elsif num > sorted_array[middle]
-        binary_search(num, sorted_array, (middle + 1), max)
-      else
-        middle
-      end
-    end
-            </code></pre>
+  <span style="color: #008800; font-weight: bold">if</span> num <span style="color: #333333">&lt;</span> sorted_array<span style="color: #333333">[</span>middle<span style="color: #333333">]</span>
+    binary_search(num, sorted_array, min, (middle <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>))
+  <span style="color: #008800; font-weight: bold">elsif</span> num <span style="color: #333333">&gt;</span> sorted_array<span style="color: #333333">[</span>middle<span style="color: #333333">]</span>
+    binary_search(num, sorted_array, (middle <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>), max)
+  <span style="color: #008800; font-weight: bold">else</span>
+    middle
+  <span style="color: #008800; font-weight: bold">end</span>
+<span style="color: #008800; font-weight: bold">end</span>
+</pre></div>
+
+
+
+
           </p>
           <p>
             <h3>Linear Search</h3>
@@ -69,33 +72,34 @@
               <li>Linear search requires equality comparisons for the input data set (like an array or a hash).</li>
               <li>The cost of linear search is O(n).</li>
             </ol>
-              <pre><code>
-    def linear_search(obj, arr)
-      index = 0
-      while arr.length >= index
-        if arr[index] != obj
-          index += 1
-        else
-          return index
-        end
-      end
-      return nil
-    end
+              <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">linear_search</span>(obj, arr)
+  index <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #008800; font-weight: bold">while</span> arr<span style="color: #333333">.</span>length <span style="color: #333333">&gt;=</span> index
+    <span style="color: #008800; font-weight: bold">if</span> arr<span style="color: #333333">[</span>index<span style="color: #333333">]</span> <span style="color: #333333">!=</span> obj
+      index <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">else</span>
+      <span style="color: #008800; font-weight: bold">return</span> index
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #003388; font-weight: bold">nil</span>
+<span style="color: #008800; font-weight: bold">end</span>
 
-    def global_linear_search(obj, arr)
-      answer = []
-      index = 0
-      while arr.length >= index
-        if arr[index] != obj
-          index += 1
-        else
-          answer << index
-          index += 1
-        end
-      end
-      return answer.length > 0 ? answer : nil
-    end
-            </code></pre>
+<span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">global_linear_search</span>(obj, arr)
+  answer <span style="color: #333333">=</span> <span style="color: #333333">[]</span>
+  index <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  <span style="color: #008800; font-weight: bold">while</span> arr<span style="color: #333333">.</span>length <span style="color: #333333">&gt;=</span> index
+    <span style="color: #008800; font-weight: bold">if</span> arr<span style="color: #333333">[</span>index<span style="color: #333333">]</span> <span style="color: #333333">!=</span> obj
+      index <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">else</span>
+      answer <span style="color: #333333">&lt;&lt;</span> index
+      index <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">return</span> answer<span style="color: #333333">.</span>length <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">?</span> answer : <span style="color: #003388; font-weight: bold">nil</span>
+<span style="color: #008800; font-weight: bold">end</span>
+</pre></div>
+
+
           </p>
           <p>
             <h3>Differences Between the Two</h3>
@@ -107,37 +111,39 @@
           </p>
           <p>
             <h3>Benchmarking in Ruby</h3>
-          <pre><code>
-    n = 500
-    array = (0..n).to_a
+          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">n <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">500</span>
+array <span style="color: #333333">=</span> (<span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">.</span>.n)<span style="color: #333333">.</span>to_a
 
-    Benchmark.bm do |bm|
+<span style="color: #003366; font-weight: bold">Benchmark</span><span style="color: #333333">.</span>bm <span style="color: #008800; font-weight: bold">do</span> <span style="color: #333333">|</span>bm<span style="color: #333333">|</span>
 
-      bm.report do
-        n.times do
-          index(n, array)
-        end
-      end
+  bm<span style="color: #333333">.</span>report <span style="color: #008800; font-weight: bold">do</span>
+    n<span style="color: #333333">.</span>times <span style="color: #008800; font-weight: bold">do</span>
+      index(n, array)
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-      bm.report do
-        n.times do
-          binary_search(n, array)
-        end
-      end
+  bm<span style="color: #333333">.</span>report <span style="color: #008800; font-weight: bold">do</span>
+    n<span style="color: #333333">.</span>times <span style="color: #008800; font-weight: bold">do</span>
+      binary_search(n, array)
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-      bm.report do
-        n.times do
-          linear_search(n, array)
-        end
-      end
+  bm<span style="color: #333333">.</span>report <span style="color: #008800; font-weight: bold">do</span>
+    n<span style="color: #333333">.</span>times <span style="color: #008800; font-weight: bold">do</span>
+      linear_search(n, array)
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-      bm.report do
-        n.times do
-          global_linear_search(n, array)
-        end
-      end
-    end
-            </pre></code>
+  bm<span style="color: #333333">.</span>report <span style="color: #008800; font-weight: bold">do</span>
+    n<span style="color: #333333">.</span>times <span style="color: #008800; font-weight: bold">do</span>
+      global_linear_search(n, array)
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
+<span style="color: #008800; font-weight: bold">end</span>
+</pre></div>
+<br>
+
+
             <img src="../../imgs/binary-linear-index-search.png">
           </p>
 

@@ -52,6 +52,78 @@
               <li>Sorting/shuffling an array takes time. Shuffling a linked list is as simple as reconnecting nodes.</li>
             </ol>
           </p>
+
+          <h3>Linked List Example in Ruby</h3>
+          <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">class</span> <span style="color: #2b91af">Node</span>
+  <span style="color: #0000ff">attr_accessor</span> <span style="color: #a31515">:value</span>, <span style="color: #a31515">:next_node</span>
+
+  <span style="color: #0000ff">def</span> initialize(value = <span style="color: #0000ff">nil</span>, next_node = <span style="color: #0000ff">nil</span>)
+    @value = value
+    @next_node = next_node
+  <span style="color: #0000ff">end</span>
+
+<span style="color: #0000ff">end</span>
+
+<span style="color: #0000ff">class</span> <span style="color: #2b91af">LinkedList</span>
+  <span style="color: #0000ff">attr_accessor</span> <span style="color: #a31515">:head</span>
+
+  <span style="color: #0000ff">def</span> initialize(head)
+    @head = head
+  <span style="color: #0000ff">end</span>
+
+
+  <span style="color: #008000"># Defining an each method for looping through the nodes</span>
+  <span style="color: #0000ff">def</span> each
+    node = @head
+    <span style="color: #0000ff">while</span> node
+      <span style="color: #0000ff">yield</span> node
+      node = node.next_node
+    <span style="color: #0000ff">end</span>
+  <span style="color: #0000ff">end</span>
+
+  <span style="color: #008000"># find(value): finds and returns the 1st node whose value is &#39;value&#39;</span>
+  <span style="color: #0000ff">def</span> find(value)
+    self.each {|node| <span style="color: #0000ff">return</span> node <span style="color: #0000ff">if</span> node.value == value}
+  <span style="color: #0000ff">end</span>
+
+  <span style="color: #008000"># find_all(value): finds and return (in an array) all the nodes whose value is &#39;value&#39;</span>
+  <span style="color: #0000ff">def</span> find_all(value)
+    nodes = []
+    self.each {|node| nodes &lt;&lt; node <span style="color: #0000ff">if</span> node.value == value}
+    nodes
+  <span style="color: #0000ff">end</span>
+
+  <span style="color: #008000"># push(value): adds a value &#39;value&#39; to the end of the linked list</span>
+  <span style="color: #0000ff">def</span> push(value)
+    last.next_node = Node.new(value, <span style="color: #0000ff">nil</span>)
+  <span style="color: #0000ff">end</span>
+ <span style="color: #008000"># unshift(value): adds a node of value &#39;value&#39; at the beginning of the linked list</span>
+ <span style="color: #0000ff">def</span> unshift(value)
+  @head = Node.new(value, @head)
+<span style="color: #0000ff">end</span>
+
+<span style="color: #008000"># Returns the last element of the linked list</span>
+<span style="color: #0000ff">def</span> last
+  self.each {|node| <span style="color: #0000ff">return</span> node <span style="color: #0000ff">if</span> node.next_node == <span style="color: #0000ff">nil</span>}
+<span style="color: #0000ff">end</span>
+
+    <span style="color: #008000"># length: returns the length of the linked list</span>
+    <span style="color: #0000ff">def</span> length
+      count = 0
+
+      node = @head
+      <span style="color: #0000ff">while</span> node
+        count += 1
+        node = node.next_node
+      <span style="color: #0000ff">end</span>
+
+      count
+    <span style="color: #0000ff">end</span>
+
+<span style="color: #0000ff">end</span>
+</pre></div>
+
+
           <p>
             <h3>References and Continued Study</h3>
             <a href="http://cslibrary.stanford.edu/102/PointersAndMemory.pdf">Pointers and Memory</a></br>
