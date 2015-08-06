@@ -54,74 +54,77 @@
           </p>
 
           <h3>Linked List Example in Ruby</h3>
-          <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000ff">class</span> <span style="color: #2b91af">Node</span>
-  <span style="color: #0000ff">attr_accessor</span> <span style="color: #a31515">:value</span>, <span style="color: #a31515">:next_node</span>
+          <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Node</span>
+  <span style="color: #003388; font-weight: bold">attr_accessor</span> <span style="color: #AA6600">:value</span>, <span style="color: #AA6600">:next_node</span>
 
-  <span style="color: #0000ff">def</span> initialize(value = <span style="color: #0000ff">nil</span>, next_node = <span style="color: #0000ff">nil</span>)
-    @value = value
-    @next_node = next_node
-  <span style="color: #0000ff">end</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">initialize</span>(value <span style="color: #333333">=</span> <span style="color: #003388; font-weight: bold">nil</span>, next_node <span style="color: #333333">=</span> <span style="color: #003388; font-weight: bold">nil</span>)
+    <span style="color: #3333BB">@value</span> <span style="color: #333333">=</span> value
+    <span style="color: #3333BB">@next_node</span> <span style="color: #333333">=</span> next_node
+  <span style="color: #008800; font-weight: bold">end</span>
 
-<span style="color: #0000ff">end</span>
+<span style="color: #008800; font-weight: bold">end</span>
 
-<span style="color: #0000ff">class</span> <span style="color: #2b91af">LinkedList</span>
-  <span style="color: #0000ff">attr_accessor</span> <span style="color: #a31515">:head</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">LinkedList</span>
+  <span style="color: #003388; font-weight: bold">attr_accessor</span> <span style="color: #AA6600">:head</span>
 
-  <span style="color: #0000ff">def</span> initialize(head)
-    @head = head
-  <span style="color: #0000ff">end</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">initialize</span>(head)
+    <span style="color: #3333BB">@head</span> <span style="color: #333333">=</span> head
+  <span style="color: #008800; font-weight: bold">end</span>
 
 
-  <span style="color: #008000"># Defining an each method for looping through the nodes</span>
-  <span style="color: #0000ff">def</span> each
-    node = @head
-    <span style="color: #0000ff">while</span> node
-      <span style="color: #0000ff">yield</span> node
-      node = node.next_node
-    <span style="color: #0000ff">end</span>
-  <span style="color: #0000ff">end</span>
+  <span style="color: #888888"># Defining an each method for looping through the nodes</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">each</span>
+    node <span style="color: #333333">=</span> <span style="color: #3333BB">@head</span>
+    <span style="color: #008800; font-weight: bold">while</span> node
+      <span style="color: #008800; font-weight: bold">yield</span> node
+      node <span style="color: #333333">=</span> node<span style="color: #333333">.</span>next_node
+    <span style="color: #008800; font-weight: bold">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  <span style="color: #008000"># find(value): finds and returns the 1st node whose value is &#39;value&#39;</span>
-  <span style="color: #0000ff">def</span> find(value)
-    self.each {|node| <span style="color: #0000ff">return</span> node <span style="color: #0000ff">if</span> node.value == value}
-  <span style="color: #0000ff">end</span>
+  <span style="color: #888888"># find(value): finds and returns the 1st node whose value is &#39;value&#39;</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find</span>(value)
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>each {<span style="color: #333333">|</span>node<span style="color: #333333">|</span> <span style="color: #008800; font-weight: bold">return</span> node <span style="color: #008800; font-weight: bold">if</span> node<span style="color: #333333">.</span>value <span style="color: #333333">==</span> value}
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  <span style="color: #008000"># find_all(value): finds and return (in an array) all the nodes whose value is &#39;value&#39;</span>
-  <span style="color: #0000ff">def</span> find_all(value)
-    nodes = []
-    self.each {|node| nodes &lt;&lt; node <span style="color: #0000ff">if</span> node.value == value}
+  <span style="color: #888888"># find_all(value): finds and return (in an array) all the nodes whose value is &#39;value&#39;</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">find_all</span>(value)
+    nodes <span style="color: #333333">=</span> <span style="color: #333333">[]</span>
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>each {<span style="color: #333333">|</span>node<span style="color: #333333">|</span> nodes <span style="color: #333333">&lt;&lt;</span> node <span style="color: #008800; font-weight: bold">if</span> node<span style="color: #333333">.</span>value <span style="color: #333333">==</span> value}
     nodes
-  <span style="color: #0000ff">end</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  <span style="color: #008000"># push(value): adds a value &#39;value&#39; to the end of the linked list</span>
-  <span style="color: #0000ff">def</span> push(value)
-    last.next_node = Node.new(value, <span style="color: #0000ff">nil</span>)
-  <span style="color: #0000ff">end</span>
- <span style="color: #008000"># unshift(value): adds a node of value &#39;value&#39; at the beginning of the linked list</span>
- <span style="color: #0000ff">def</span> unshift(value)
-  @head = Node.new(value, @head)
-<span style="color: #0000ff">end</span>
+  <span style="color: #888888"># push(value): adds a value &#39;value&#39; to the end of the linked list</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">push</span>(value)
+    last<span style="color: #333333">.</span>next_node <span style="color: #333333">=</span> <span style="color: #003366; font-weight: bold">Node</span><span style="color: #333333">.</span>new(value, <span style="color: #003388; font-weight: bold">nil</span>)
+  <span style="color: #008800; font-weight: bold">end</span>
 
-<span style="color: #008000"># Returns the last element of the linked list</span>
-<span style="color: #0000ff">def</span> last
-  self.each {|node| <span style="color: #0000ff">return</span> node <span style="color: #0000ff">if</span> node.next_node == <span style="color: #0000ff">nil</span>}
-<span style="color: #0000ff">end</span>
+  <span style="color: #888888"># unshift(value): adds a node of value &#39;value&#39; at the beginning of the linked list</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">unshift</span>(value)
+    <span style="color: #3333BB">@head</span> <span style="color: #333333">=</span> <span style="color: #003366; font-weight: bold">Node</span><span style="color: #333333">.</span>new(value, <span style="color: #3333BB">@head</span>)
+  <span style="color: #008800; font-weight: bold">end</span>
 
-    <span style="color: #008000"># length: returns the length of the linked list</span>
-    <span style="color: #0000ff">def</span> length
-      count = 0
+  <span style="color: #888888"># Returns the last element of the linked list</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">last</span>
+    <span style="color: #007020">self</span><span style="color: #333333">.</span>each {<span style="color: #333333">|</span>node<span style="color: #333333">|</span> <span style="color: #008800; font-weight: bold">return</span> node <span style="color: #008800; font-weight: bold">if</span> node<span style="color: #333333">.</span>next_node <span style="color: #333333">==</span> <span style="color: #003388; font-weight: bold">nil</span>}
+  <span style="color: #008800; font-weight: bold">end</span>
 
-      node = @head
-      <span style="color: #0000ff">while</span> node
-        count += 1
-        node = node.next_node
-      <span style="color: #0000ff">end</span>
+  <span style="color: #888888"># length: returns the length of the linked list</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">length</span>
+    count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
 
-      count
-    <span style="color: #0000ff">end</span>
+    node <span style="color: #333333">=</span> <span style="color: #3333BB">@head</span>
+    <span style="color: #008800; font-weight: bold">while</span> node
+      count <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+      node <span style="color: #333333">=</span> node<span style="color: #333333">.</span>next_node
+    <span style="color: #008800; font-weight: bold">end</span>
 
-<span style="color: #0000ff">end</span>
+    count
+  <span style="color: #008800; font-weight: bold">end</span>
+
+<span style="color: #008800; font-weight: bold">end</span>
 </pre></div>
+
+
 
 
           <p>
