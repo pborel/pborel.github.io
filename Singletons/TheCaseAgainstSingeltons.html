@@ -33,9 +33,8 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">HTML5, CSS3, JS</a>
-          <a class="blog-nav-item" href="#">C# MVC</a>
-          <a class="blog-nav-item" href="#">C# APIs</a>
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item" href="#">Stuff</a>
           <a class="blog-nav-item" href="#">About</a>
         </nav>
       </div>
@@ -60,29 +59,32 @@
             <button class="cirriculum-controller">Post Navigation:</button>
             <blockquote class="cirriculum-nav">
                   <!-- <ul> -->
-                    <p><a href="#singleton-intro"><b>What Are Singletons?</b></a><p>
+                    <p><a href="#singleton"><b>What Are Singletons?</b></a><p>
                     <!-- <p><a href="#singleton-usage"><b>When Should I Use Singletons?</b></a><p> -->
                     <!-- <p><a href="#singleton-misuse"><b>When Should I Avoid Singletons?</b></a></p> -->
-                    <p><a href="#singleton-misuse"><b>What is Constructor Injection?</b></a></p>
-                    <p><a href="#singleton-misuse"><b>What is Composition Root?</b></a></p>
+                    <p><a href="#constructor-injection"><b>What is Constructor Injection?</b></a></p>
+                    <p><a href="#composite-root"><b>What is a Composition Root?</b></a></p>
                     <!-- <li><a href="#HTML-styling"><b>What is Static?</b></a></li>
                     <li><a href="#HTML-styling"><b>When Should I Use Static?</b></a></li>
                     <li><a href="#HTML-styling"><b>When Should I Avoid Static?</b></a></li> -->
                   </ul>
             </blockquote>
 
+
           <article>
+          </br>
             <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
               TLDR: Don't use Singletons or global variables; Instead use Constructor Injection and the Composition Root pattern.
             </blockquote>
 
-            <!-- <h1 id="DOM-structure">What Are Singletons?</h1> -->
-            <section id="singleton-intro">
+            <!-- SINGLETONS -->
 
-            </br>
-              <h2>What are Singletons?</h2>
+            <section id="singleton">
 
-              <p><b>Singleton: A class that can only ever have one instance at a time.</b></p>
+              <header>
+                <h2>What are Singletons?</h2>
+                <p><b>Singleton: A class that can only ever have one instance at a time.</b></p>
+              </header>
 
               <p>
                 Seems simple enough. The lifetime of a Singleton class is <em>typically</em> the lifetime of the program. So if we have a class (e.g. <a href="https://www.youtube.com/watch?v=sqcLjcSloXs">Highlander</a>) and there can be only one (at a time), then we'd make this class a Singleton.
@@ -91,11 +93,11 @@
 
               <p>Let's check out the one source of truth, <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Wikipedia</a>:</p>
               <blockquote>
-                The singleton pattern is a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to <a href="">coordinate actions across the system</a>. The concept is sometimes generalized to systems that operate more efficiently when only one object exists, or that restrict the instantiation to a certain number of objects. The term comes from the mathematical concept of a singleton.
+                The singleton pattern is a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system. The concept is sometimes generalized to systems that operate more efficiently when only one object exists, or that restrict the instantiation to a certain number of objects. The term comes from the mathematical concept of a singleton.
               </blockquote>
 
               <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
-                Basically a Singleton helps improve performance and create a safe way to ensure that only one instance of class is being used, manipulated, read from, etc at a time.
+                Basically a Singleton helps improve performance by restricting the number of unnecessary objects in memory and create a safe way to ensure that only one instance of class is being used, manipulated, read from, etc at a time.
               </blockquote>
 
               <p>Some common uses for the Singleton Pattern (courtesy of Wikipedia):</p>
@@ -123,257 +125,65 @@
               <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
                 Philip, you mean to tell me that Singeltons are an anti-pattern?
                 </br>
-                Yes, yes they are. Don't use them, if you can help it.
+                Yes, yes they are. Don't use them, if you can help it. Though, they are better than <a href="https://en.wikipedia.org/wiki/Global_variable">global variables</a>.
               </blockquote>
             </section>
 
           <br/>
 
-            <section id="singleton-usage">
+          <!-- CONSTCUTOR INJECTION -->
+
+            <section id="constructor-injection">
               <header>
-                <h2>When Should I Use Singletons?</h2>
-                <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_section">W3 Schools Try It</a>
+                <h2>What is Constructor Injection?</h2>
+                <p><b>Constructor Injection: A form of <a href="http://www.martinfowler.com/articles/injection.html#ConstructorVersusSetterInjection">Dependency Injection</a> where the dependencies are provided through a constructor.</b></p>
               </header>
 
+              <p>Obviously, we need to know what Dependency Injection (DI) is before we can understand Constructor Injection. Let's consult <a href="https://en.wikipedia.org/wiki/Dependency_injection">Wikipedia</a> again:</p>
+              <blockquote>
+                 Dependency Injection is a software design pattern that implements inversion of control for resolving dependencies. A dependency is an object that can be used (a service). An injection is the passing of a dependency to a dependent object (a client) that would use it. The service is made part of the client's state. Passing the service to the client, rather than allowing a client to build or find the service, is the fundamental requirement of the pattern.
+              </blockquote>
+
               <p>
-                <blockquote>A section is a thematic grouping of content, typically with a heading. - <a href="https://dev.w3.org/html5/spec-preview/the-section-element.html">W3Schools HTML5 Documentation</a></blockquote>
-                The section tag specifies a portion of the document that is sectioned off (what else would it be?). Div tags used to be commonly used for this. Each of the core competencies in this blog post are sections. This is the basic building block for document structure above the <code>&lt;p&gt;</code> tag. Examples include product information, a section of a wiki page, or a comment.
+                In summary, DI is a pattern that allows a service to pass objects to a client. These objects are made part of the client's <a href="https://docs.oracle.com/javase/tutorial/java/concepts/object.html">state</a>. And the object <b>must</b> be passed to the client by the service, the client is not permitted to build or find the object.
               </p>
 
-              <figure>
-                <img src="./images/section-code.png" alt="Section Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for a section.</figcaption>
-              </figure>
+              <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                What does DI do for us as programmers? Because the clients are no longer dependent upon a concrete implementation of the service, it allows us to create loosely coupled relationships between clients and services.
+              </blockquote>
 
-            <br/>
-
-              <figure>
-                <img src="./images/section-example.png" alt="Section Tag Example" max-width="700px" width="700px" height="auto">
-                <figcaption>A good example of what a section looks like.</figcaption>
-              </figure>
-
-            <br/>
               <p>
-                A web page will usually be split into several sections (introduction, main content, contact information).
+                Let's look at an example I stole from the <a href="https://github.com/ninject/ninject/wiki/Dependency-Injection-By-Hand">Internets</a>:
+                <script src="https://gist.github.com/pborel/a593c91f98e9808b77bd.js"></script>
               </p>
             </section>
 
             <br/>
 
-            <section id="singleton-misuse">
+            <!-- COMPOSITION ROOT -->
+
+            <section id="composition-root">
                 <header>
-                    <h2>When Should I Avoid Singletons?</h2>
-                    <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_article">W3 Schools Try It</a>
+                    <h2>What is a Composition Root?</h2>
+                    <p><b>Composition Root: A (preferably) unique location in an application where modules are composed together. - <a href="http://blog.ploeh.dk/2011/07/28/CompositionRoot/">Mark Seemann</a></b></p>
                 </header>
 
                 <blockquote>
-                  a global variable is a variable with global scope, meaning that it is visible (hence accessible) throughout the program, unless shadowed. The set of all global variables is known as the global environment or global state. In compiled languages, global variables are generally static variables, whose extent (lifetime) is the entire runtime of the program, though in interpreted languages (including command-line interpreters), global variables are generally dynamically allocated when declared, since they are not known ahead of time.
+                  This means that all the application code relies solely on Constructor Injection (or other injection patterns), but is never composed. Only at the entry point of the application is the entire object graph finally composed. - <a href="http://blog.ploeh.dk/2011/07/28/CompositionRoot/">Mark Seemann</a>
+                </blockquote>
+
+                <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                  This allows us to more easily identify error causes and write more modular, loosely coupled code. But wait, <a href="http://jeremybytes.blogspot.com/2013/03/dependency-injection-composition-root.html">aren't we just moving the coupling</a>? <b>Yes. Yes we are.</b> We have moved the coupling from existing between our components (View, ViewModel, Repository) to one, easy-to-locate/understand/maintain place.
                 </blockquote>
 
               <p>
-                The <code>&lt;article&gt;</code> element partitions content into independent portions. Each piece of content should be easily understood on it's own without <em>additional</em> contextual information. An article may contain several sections. According to W3Schools, <em>a section may contain several articles</em>. This pretty much contradicts their definition of an article (as a standalone, self-contained entity) and a section (as a portion of a larger, self-contained entity), so I'm expecting they will change their definitions (eventually).
+                Let's look at an example that I borrowed verbatim from the <a href="https://visualstudiomagazine.com/articles/2014/06/01/how-to-refactor-for-dependency-injection.aspx">Internets</a>:
+                <script src="https://gist.github.com/pborel/f2ea202a0497038696ab.js"></script>
               </p>
-              <p>
-                Examples include a blog post, a news article, a comment area, or a forum post.
-              </p>
-
-              <figure>
-                <img src="./images/article-code.png" alt="Article Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for an article.</figcaption>
-              </figure>
+            </section><!-- End Blog Post -->
 
             <br/>
 
-              <figure>
-                <img src="./images/section-example.png" alt="Article Tag Example" width="700px" height="auto">
-                <figcaption>A good example of what an article looks like.</figcaption>
-              </figure>
-            </section>
-
-            <br/>
-
-            <hr/>
-
-            <!-- <section>
-                <header>
-                  <h2>Nav</h2>
-                  <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_nav">W3 Schools Try It</a>
-                </header>
-              <p>
-                  The <code>&lt;nav&gt;</code> element should only be used for blocks of navigation links. Not all links fall into this category. Standalone links (like <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">this one</a>) should not be in a nav unless your site's main navigation is actually just one link.
-              </p>
-
-              <figure>
-                <img src="./images/nav-code.png" alt="Nav Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for a nav.</figcaption>
-              </figure>
-
-            <br/>
-
-              <figure>
-                <img src="./images/nav-example.png" alt="Nav Tag Example" width="700px" height="auto">
-                <figcaption>A good example of what a nav looks like.</figcaption>
-              </figure>
-            </section>
-
-            <br/>
-
-            <section>
-              <header>
-                  <h2>Header</h2>
-                  <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_header">W3 Schools Try It</a>
-              </header>
-
-              <p>
-                  The <code>&lt;header&gt;</code> element can specify a header for a document <em>or section</em>.
-              </p>
-
-              <p>
-                  The <code>&lt;header&gt;</code> element should be used as a container for introductory content and can be used several times in one document.
-              </p>
-            <figure>
-                <img src="./images/header-code.png" alt="Header Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for a header.</figcaption>
-              </figure>
-
-            <br/>
-
-              <figure>
-                <img src="./images/header-example.png" alt="Header Tag Example" width="700px" height="auto">
-                <figcaption>A good example of what a header looks like.</figcaption>
-              </figure>
-            </section>
-
-            <br/>
-
-          <section>
-              <header>
-                <h2>Footer</h2>
-                <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_footer">W3 Schools Try It</a>
-              </header>
-
-              <p>The <code>&lt;footer&gt;</code> element specifies a footer for a document or section.</p>
-
-              <p>A <code>&lt;footer&gt;</code> element should contain information about its containing element.</p>
-
-              <p>A footer typically contains the author of the document, copyright information, links to terms of use, contact information, etc.</p>
-
-              <p>You can have several <code>&lt;footer&gt;</code> elements in one document.</p>
-
-              <figure>
-                <img src="./images/footer-code.png" alt="Footer Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for a footer.</figcaption>
-              </figure>
-
-            <br/>
-
-              <figure>
-                <img src="./images/footer-example.png" alt="Footer Tag Example" width="700px" height="auto">
-                <figcaption>A good example of what a footer looks like.</figcaption>
-              </figure>
-            </section>
-
-          </section>
-
-            <br/>
-
-          <section>
-              <header>
-                <h2>Aside</h2>
-                <a href="http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_aside">W3 Schools Try It</a>
-              </header>
-
-              <p>The <code>&lt;aside&gt;</code> element defines some content aside from the content it is placed in (like a sidebar).</p>
-
-              <p>The aside content should be related to the surrounding content.</p>
-
-              <figure>
-                <img src="./images/aside-code.png" alt="Aside Tag Code Example" height="auto" width="700">
-                <figcaption>A good example of the HTML for an aside.</figcaption>
-              </figure>
-
-            <br/>
-
-              <figure>
-                <img src="./images/aside-example.png" alt="Aside Tag Example" width="700px" height="auto">
-                <figcaption>A good example of what an aside looks like.</figcaption>
-              </figure>
-            </section>
-
-          </section>
-
-          <br/>
-
-        <section>
-            <header>
-                <h2>Misc. Elements</h2>
-            </header>
-
-            <p>There are several other elements that were introduced with HTML5. You can check them out in the table below.</p>
-
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th style="width:20%">Tag</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_article.asp">&lt;article&gt;</a></td>
-                        <td>Defines an article</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_aside.asp">&lt;aside&gt;</a></td>
-                        <td>Defines content aside from the page content</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_details.asp">&lt;details&gt;</a></td>
-                        <td>Defines additional details that the user can view or hide</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_figcaption.asp">&lt;figcaption&gt;</a></td>
-                        <td>Defines a caption for a &lt;figure&gt; element</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_figure.asp">&lt;figure&gt;</a></td>
-                        <td>Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_footer.asp">&lt;footer&gt;</a></td>
-                        <td>Defines a footer for a document or section</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_header.asp">&lt;header&gt;</a></td>
-                        <td>Specifies a header for a document or section</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_main.asp">&lt;main&gt;</a></td>
-                        <td>Specifies the main content of a document</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_mark.asp">&lt;mark&gt;</a></td>
-                        <td>Defines marked/highlighted text</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_nav.asp">&lt;nav&gt;</a></td>
-                        <td>Defines navigation links</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_section.asp">&lt;section&gt;</a></td>
-                        <td>Defines a section in a document</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_summary.asp">&lt;summary&gt;</a></td>
-                        <td>Defines a visible heading for a &lt;details&gt; element</td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.w3schools.com/tags/tag_time.asp">&lt;time&gt;</a></td>
-                        <td>Defines a date/time</td>
-                    </tr>
-                </tbody>
-            </table>
-        <section>
-    </article> -->
-<!-- /.blog-post -->
           <nav>
             <ul class="pager">
               <li><a href="#">Previous</a></li>
@@ -388,15 +198,7 @@
             <h4>About</h4>
             <p>A blog about Software Development and other stuff. Made by <a href="philborel.me">Phil Borel</a>.</p>
           </div>
-          <!-- <div class="sidebar-module">
-            <h4>Latest Posts</h4>
-            <ol class="list-unstyled">
-              <li><a href="https://www.microsoft.com/en-us/learning/mcsd-web-apps-certification.aspx">What is MSCD: Web Applications?</a></li>
-              <li><a href="#">Exam 70-480 (1 of 3)</a></li>
-              <li><a href="#">Exam 70-481 (2 of 3)</a></li>
-              <li><a href="#">Exam 70-482 (3 of 3)</a></li>
-            </ol>
-          </div> -->
+
           <div class="sidebar-module">
             <h4>Author</h4>
             <ol class="list-unstyled">
