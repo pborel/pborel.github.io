@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content=" Singleton Pattern, Constuctor Injection, and the Composition Root">
+    <meta name="author" content="Phil Borel">
+    <link rel="icon" href="./images/dotnet.png">
+
+    <title>Phil's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./css/vendor/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/vendor/blog.css" rel="stylesheet">
+    <link href="./css/application.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#">Blog</a>
+          <a class="blog-nav-item" href="#">Stuff</a>
+          <a class="blog-nav-item" href="http://www.philborel.me/">About</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <header class="blog-header">
+        <h1 class="blog-title">Phil's Blog on Stuff</h1>
+        <p class="lead blog-description">A blog on stuff. Usually software development stuff.</p>
+      </header>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <article class="blog-post">
+            <h2 class="blog-post-title">Why You Should Use Composition Root instead of Singletons</h2>
+            <p class="blog-post-meta">March 2, 2016 by <a href="http://www.philborel.me/">Phil Borel</a></p>
+
+            <hr>
+            <button class="cirriculum-controller">Post Navigation:</button>
+            <blockquote class="cirriculum-nav">
+                  <!-- <ul> -->
+                    <p><a href="#singleton"><b>What Are Singletons?</b></a><p>
+                    <!-- <p><a href="#singleton-usage"><b>When Should I Use Singletons?</b></a><p> -->
+                    <!-- <p><a href="#singleton-misuse"><b>When Should I Avoid Singletons?</b></a></p> -->
+                    <p><a href="#constructor-injection"><b>What is Constructor Injection?</b></a></p>
+                    <p><a href="#composite-root"><b>What is a Composition Root?</b></a></p>
+                    <!-- <li><a href="#HTML-styling"><b>What is Static?</b></a></li>
+                    <li><a href="#HTML-styling"><b>When Should I Use Static?</b></a></li>
+                    <li><a href="#HTML-styling"><b>When Should I Avoid Static?</b></a></li> -->
+                  </ul>
+            </blockquote>
+
+
+          <article>
+          </br>
+            <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+              TLDR: Don't use Singletons or global variables; Instead use Constructor Injection and the Composition Root pattern.
+            </blockquote>
+
+            <!-- SINGLETONS -->
+
+            <section id="singleton">
+
+              <header>
+                <h2>What are Singletons?</h2>
+                <p><b>Singleton: A class that can only ever have one instance at a time.</b></p>
+              </header>
+
+              <p>
+                Seems simple enough. The lifetime of a Singleton class is <em>typically</em> the lifetime of the program. So if we have a class (e.g. <a href="https://www.youtube.com/watch?v=sqcLjcSloXs">Highlander</a>) and there can be only one (at a time), then we'd make this class a Singleton.
+                Thinking about this, we'd arrive at the conclusion that if we have one instance of our Singleton class and we need a <em>new</em> instance (to replace the original instance), we have to deconstruct the first instance <b>before</b> we can construct the new instance.
+              </p>
+
+              <p>Let's check out the one source of truth, <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Wikipedia</a>:</p>
+              <blockquote>
+                The singleton pattern is a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system. The concept is sometimes generalized to systems that operate more efficiently when only one object exists, or that restrict the instantiation to a certain number of objects. The term comes from the mathematical concept of a singleton.
+              </blockquote>
+
+              <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                Basically a Singleton helps improve performance by restricting the number of unnecessary objects in memory and create a safe way to ensure that only one instance of class is being used, manipulated, read from, etc at a time.
+              </blockquote>
+
+              <p>Some common uses for the Singleton Pattern (courtesy of Wikipedia):</p>
+              <ul>
+                <li>The Abstract Factory, Builder, and Prototype patterns can use Singletons in their implementation.</li>
+                <li>Facade objects are often singletons because only one Facade object is required.</li>
+                <li>State objects are often singletons.</li>
+                <li>Singletons are often preferred to global variables because:</li>
+                <ul>
+                  <li>They do not pollute the global namespace (or, in languages with namespaces, their containing namespace) with unnecessary variables.</li>
+                  <li>They permit lazy allocation and initialization, whereas global variables in many languages will always consume resources.</li>
+                </ul>
+              </ul>
+
+              <p>But wait, Wikipedia has more to say about our good friend, The Singleton:</p>
+              <blockquote>
+                There are some who are critical of the singleton pattern and consider it to be an anti-pattern in that it is frequently used in scenarios where it is not beneficial, introduces unnecessary restrictions in situations where a sole instance of a class is not actually required, and introduces <b>global state</b> into an application.
+              </blockquote>
+
+              <div>
+                <p>Example of a Singleton in C#:</p>
+                <script src="https://gist.github.com/pborel/8026db194dc27d82de6c.js"></script>
+              </div>
+
+              <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                Philip, you mean to tell me that Singeltons are an anti-pattern?
+                </br>
+                Yes, yes they are. Don't use them, if you can help it. Though, they are better than <a href="https://en.wikipedia.org/wiki/Global_variable">global variables</a>.
+              </blockquote>
+            </section>
+
+          <br/>
+
+          <!-- CONSTCUTOR INJECTION -->
+
+            <section id="constructor-injection">
+              <header>
+                <h2>What is Constructor Injection?</h2>
+                <p><b>Constructor Injection: A form of <a href="http://www.martinfowler.com/articles/injection.html#ConstructorVersusSetterInjection">Dependency Injection</a> where the dependencies are provided through a constructor.</b></p>
+              </header>
+
+              <p>Obviously, we need to know what Dependency Injection (DI) is before we can understand Constructor Injection. Let's consult <a href="https://en.wikipedia.org/wiki/Dependency_injection">Wikipedia</a> again:</p>
+              <blockquote>
+                 Dependency Injection is a software design pattern that implements inversion of control for resolving dependencies. A dependency is an object that can be used (a service). An injection is the passing of a dependency to a dependent object (a client) that would use it. The service is made part of the client's state. Passing the service to the client, rather than allowing a client to build or find the service, is the fundamental requirement of the pattern.
+              </blockquote>
+
+              <p>
+                In summary, DI is a pattern that allows a service to pass objects to a client. These objects are made part of the client's <a href="https://docs.oracle.com/javase/tutorial/java/concepts/object.html">state</a>. And the object <b>must</b> be passed to the client by the service, the client is not permitted to build or find the object.
+              </p>
+
+              <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                What does DI do for us as programmers? Because the clients are no longer dependent upon a concrete implementation of the service, it allows us to create loosely coupled relationships between clients and services.
+              </blockquote>
+
+              <p>
+                Let's look at an example I stole from the <a href="https://github.com/ninject/ninject/wiki/Dependency-Injection-By-Hand">Internets</a>:
+                <script src="https://gist.github.com/pborel/a593c91f98e9808b77bd.js"></script>
+              </p>
+            </section>
+
+            <br/>
+
+            <!-- COMPOSITION ROOT -->
+
+            <section id="composition-root">
+                <header>
+                    <h2>What is a Composition Root?</h2>
+                    <p><b>Composition Root: A (preferably) unique location in an application where modules are composed together. - <a href="http://blog.ploeh.dk/2011/07/28/CompositionRoot/">Mark Seemann</a></b></p>
+                </header>
+
+                <blockquote>
+                  This means that all the application code relies solely on Constructor Injection (or other injection patterns), but is never composed. Only at the entry point of the application is the entire object graph finally composed. - <a href="http://blog.ploeh.dk/2011/07/28/CompositionRoot/">Mark Seemann</a>
+                </blockquote>
+
+                <blockquote style="background-color:#d3d3d3; border-radius: 15px;">
+                  This allows us to more easily identify error causes and write more modular, loosely coupled code. But wait, <a href="http://jeremybytes.blogspot.com/2013/03/dependency-injection-composition-root.html">aren't we just moving the coupling</a>? <b>Yes. Yes we are.</b> We have moved the coupling from existing between our components (View, ViewModel, Repository) to one, easy-to-locate/understand/maintain place.
+                </blockquote>
+
+              <p>
+                Let's look at an example that I borrowed verbatim from the <a href="https://visualstudiomagazine.com/articles/2014/06/01/how-to-refactor-for-dependency-injection.aspx">Internets</a>:
+                <script src="https://gist.github.com/pborel/f2ea202a0497038696ab.js"></script>
+              </p>
+            </section><!-- End Blog Post -->
+
+            <br/>
+
+          <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>A blog about Software Development and other stuff. Made by <a href="philborel.me">Phil Borel</a>.</p>
+          </div>
+
+          <div class="sidebar-module">
+            <h4>Author</h4>
+            <ol class="list-unstyled">
+              <li><a href="http://www.philborel.me/">Personal Site</a></li>
+              <li><a href="https://github.com/pborel">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/philborel">LinkedIn</a></li>
+            </ol>
+          </div>
+        </aside><!-- /.blog-sidebar -->
+        <button class="sidebar-controller">></button>
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Made with &#x2661; by <a href="http://www.philborel.me/">Phil Borel</a>.</p>
+
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./js/vendorjquery.min.js"><\/script>')</script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./js/vendor/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="./js/slider.js"></script>
+  </body>
+</html>
